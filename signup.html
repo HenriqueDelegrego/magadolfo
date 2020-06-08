@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="signupstyle.css">
+</head>
+
+<body>
+
+
+    <header class="flex">
+        <img onclick="redirect()" src="logo.png" width="150" />
+        <span class="borderVerde">Área de cadastro</span>
+    </header>
+
+
+
+
+    <form class="flexColumn flex">
+        <div class="width">
+
+            <div class="flex">
+
+                <span>
+                    <p>Nome:</p>
+
+                    <input type="text" id="nome" required>
+                </span>
+                <span class="span">
+                    <p>Sobrenome:</p>
+
+                    <input type="text" id="sobrenome" required>
+
+                </span>
+
+
+            </div>
+
+            <div class="flex">
+                <div class="width">
+                    <p>Data de nascimento:</p>
+
+                    <input type="date" id="dataNascimento">
+                </div>
+
+            </div>
+
+
+            <div class="flex">
+                <div class="width">
+                    <p>Email:</p>
+
+                    <input type="email" id="email" required>
+                </div>
+            </div>
+
+            <div class="flex">
+
+                <span>
+                    <p>Senha:</p>
+
+                    <input type="password" id="senha1" required>
+                </span>
+                <span class="span">
+                    <p>Confirmar senha:</p>
+
+                    <input type="password" id="senha2" required>
+
+                </span>
+
+
+            </div>
+        </div>
+    </form>
+
+
+
+    <div class="flex">
+
+        <button onclick="validateForm()">Cadastrar-se</button>
+
+    </div>
+
+
+
+    <script>
+        function validateForm() {
+            var x = document.getElementById("email").value;
+            x = x + "";
+            var nome = document.getElementById("nome").value;
+
+            var sobrenome = document.getElementById("sobrenome").value;
+
+            // var data = document.getElementById("dataNascimento").value;
+
+            var senha1 = document.getElementById("senha1").value;
+            var senha2 = document.getElementById("senha2").value;
+
+            /* nome sobrenome senha1 senha2
+            */
+            if (x.indexOf("@") == -1 || x.indexOf("@") == 0 || x.indexOf(".") == -1) {
+
+                alert("Não condiz com um email");
+                return false;
+
+            }
+            if (senha1.length < 4) {
+                alert("A senha deve ter no mínimo 4 caracteres"); // моя
+                return false;
+            }
+            if (senha1 != senha2) {
+                alert("As senhas devem ser iguais");
+                return false;
+            }
+            if (senha1 == "" || senha2 == "" || sobrenome == "" || nome == "") {
+                alert("Preencha todos os campos");
+                return false;
+            }
+
+
+
+
+            var s = window.location.href;
+            var s = s + ""
+            var num = s.lastIndexOf("/")
+            var String = s.substr(num, s.length - 1);
+            s = s.replace(String, "/index.html")
+            window.location.href = s;
+
+        }
+
+        function redirect() {
+
+
+            var s = window.location.href;
+            var s = s + ""
+            var num = s.lastIndexOf("/")
+            var String = s.substr(num, s.length - 1);
+            s = s.replace(String, "/index.html")
+            window.location.href = s;
+        }
+
+    </script>
+
+</body>
+
+</html>
